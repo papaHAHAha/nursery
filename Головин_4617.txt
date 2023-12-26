@@ -1,0 +1,33 @@
+ 1070  cat Pets.txt
+ 1071  cat > Pack animals.txt
+ 1072  cat > Pack_animals.tct
+ 1073  ll
+ 1074  rm -rf Pack_animals.tct
+ 1075  ll
+ 1076  cat > pack_animals.txt
+ 1077  ll
+ 1078  cat Pets.txt pack_animals.txt > 12
+ 1079  ll
+ 1080  mv 12 human_friend.txt
+ 1081  ll
+
+
+ 1082  mkdir human_friendss
+ 1083  mv human_friend.txt human_friendss/
+ 1084  ll
+ 1085  cd human_friendss/
+ 1086  ll
+
+
+ 1087  sudo apt-get update
+ 1088  sudo apt-get install software-properties-common
+ 1090  sudo add-apt-repository 'deb http://archive.ubuntu.com/ubuntu focal main universe'
+ 1091  sudo apt-get update
+ 1092  sudo apt-get install mysql-server
+
+
+ 1093  sudo apt-get install htop
+ 1094  sudo dpkg -r htop
+ 1095  sudo dpkg -P htop
+
+ 1096  history > Головин_4617
