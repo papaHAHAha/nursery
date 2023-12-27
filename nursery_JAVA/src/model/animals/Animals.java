@@ -3,15 +3,15 @@ package model.animals;
 import java.time.LocalDate;
 import java.util.List;
 
-public class Animals implements AnimalItem {
+public class Animals implements AnimalItem<Animals> {
   private long id;
   private String name;
   private String type;
   private LocalDate birthDate;
   private List<String> commands;
 
-  public Animals(long id, String name, String type, LocalDate birthDate, List<String> commands) {
-    this.id = id;
+  public Animals(String name, String type, LocalDate birthDate, List<String> commands) {
+    id = -1;
     this.name = name;
     this.type = type;
     this.birthDate = birthDate;
@@ -72,6 +72,6 @@ public class Animals implements AnimalItem {
   }
 
   public String getAnimalType() {
-    return this.getClass().getSimpleName();
+    return this.type.toLowerCase();
 }
 }
