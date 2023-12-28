@@ -31,4 +31,13 @@ public class Presenter {
     String answer = service.getAnimals();
     view.print(answer);
   }
+
+  public void getCommandList(int id) {
+    String answer = service.getCommandList(id);
+    view.print(answer);
+  }
+
+  public void sortByBirthDate() {
+    service.sortByBirthDate();
+  }
 }

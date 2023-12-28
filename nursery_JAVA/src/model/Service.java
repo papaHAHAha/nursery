@@ -60,4 +60,19 @@ public class Service {
     }
   }
 
+  public String getCommandList(int id) {
+    String res = "Commands: ";
+    List<Animals> animalsList = animalList.getAnimalsList();
+    for (Animals animals : animalsList) {
+      if (animals.getId() == id) {
+        res += animals.getCommands();
+        break;
+      }
+    }
+    return res;
+  }
+
+  public void sortByBirthDate() {
+    animalList.sortByBirthDate();
+  }
 }

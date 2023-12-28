@@ -51,4 +51,13 @@ public class Console implements View {
   public void getAnimals() {
     presenter.getAnimals();
   }
+
+  public void getCommandList(int id) {
+    presenter.getCommandList(id);
+  }
+
+  public void sortByBirthDate() {
+    presenter.sortByBirthDate();
+    getAnimals();
+  }
 }

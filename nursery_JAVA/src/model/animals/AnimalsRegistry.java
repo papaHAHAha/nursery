@@ -34,6 +34,14 @@ public class AnimalsRegistry<E extends AnimalItem<E>> {
     return Arrays.asList("cat", "dog", "hamster", "horse", "camel", "donkey").contains(type.toLowerCase());
   }
 
+  public void sortByBirthDate(){
+    animalList.sort(new ComparatorByBirthDate<>());
+  }
+
+  public List<E> getAnimalsList() {
+    return animalList;
+  }
+
   @Override
   public String toString() {
     return getInfo();

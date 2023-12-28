@@ -6,10 +6,15 @@ import java.util.List;
 import view.commands.addAnimal;
 import view.commands.exit;
 import view.commands.getAnimals;
+import view.commands.getCommandList;
+import view.commands.sortByBirthDate;
 
 public class Menu {
   private List<getAnimals> list;
   private addAnimal addAnimalCmd;
+  private getCommandList getCommandListCmd;
+
+  private sortByBirthDate sortByBirthDateCmd;
   private exit exit;
 
   public Menu(Console console) {
@@ -17,6 +22,9 @@ public class Menu {
     list.add(new getAnimals(console));
 
     addAnimalCmd = new addAnimal(console);
+    getCommandListCmd = new getCommandList(console);
+
+    sortByBirthDateCmd = new sortByBirthDate(console);
     exit = new exit(console);
   }
 
@@ -35,6 +43,21 @@ public class Menu {
 
     stringBuilder.append(list.size() + 2);
     stringBuilder.append(". ");
+    stringBuilder.append(getCommandListCmd.getDescription());
+    stringBuilder.append("\n");
+
+    stringBuilder.append(list.size() + 3);
+    stringBuilder.append(". ");
+    stringBuilder.append(getCommandListCmd.getDescription());
+    stringBuilder.append("\n");
+
+    stringBuilder.append(list.size() + 4);
+    stringBuilder.append(". ");
+    stringBuilder.append(sortByBirthDateCmd.getDescription());
+    stringBuilder.append("\n");
+
+    stringBuilder.append(list.size() + 5);
+    stringBuilder.append(". ");
     stringBuilder.append(exit.getDescription());
     stringBuilder.append("\n");
 
@@ -47,6 +70,12 @@ public class Menu {
     if (index == list.size()) {
       addAnimalCmd.execute();
     } else if (index == list.size() + 1) {
+      getCommandListCmd.execute();
+    } else if (index == list.size() + 2) {
+      getCommandListCmd.execute();
+    } else if (index == list.size() + 3) {
+      sortByBirthDateCmd.execute();
+    } else if (index == list.size() + 4) {
       exit.execute();
     } else {
       list.get(index).execute();
