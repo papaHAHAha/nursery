@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import view.commands.addAnimal;
+import view.commands.addCommand;
 import view.commands.exit;
+import view.commands.getAnimalCounter;
 import view.commands.getAnimals;
 import view.commands.getCommandList;
 import view.commands.sortByBirthDate;
@@ -12,9 +14,10 @@ import view.commands.sortByBirthDate;
 public class Menu {
   private List<getAnimals> list;
   private addAnimal addAnimalCmd;
+  private addCommand addCommandCmd;
   private getCommandList getCommandListCmd;
-
   private sortByBirthDate sortByBirthDateCmd;
+  private getAnimalCounter getAnimalCounterCmd;
   private exit exit;
 
   public Menu(Console console) {
@@ -23,8 +26,9 @@ public class Menu {
 
     addAnimalCmd = new addAnimal(console);
     getCommandListCmd = new getCommandList(console);
-
+    addCommandCmd = new addCommand(console);
     sortByBirthDateCmd = new sortByBirthDate(console);
+    getAnimalCounterCmd = new getAnimalCounter(console);
     exit = new exit(console);
   }
 
@@ -43,7 +47,7 @@ public class Menu {
 
     stringBuilder.append(list.size() + 2);
     stringBuilder.append(". ");
-    stringBuilder.append(getCommandListCmd.getDescription());
+    stringBuilder.append(addCommandCmd.getDescription());
     stringBuilder.append("\n");
 
     stringBuilder.append(list.size() + 3);
@@ -58,6 +62,11 @@ public class Menu {
 
     stringBuilder.append(list.size() + 5);
     stringBuilder.append(". ");
+    stringBuilder.append(getAnimalCounterCmd.getDescription());
+    stringBuilder.append("\n");
+
+    stringBuilder.append(list.size() + 6);
+    stringBuilder.append(". ");
     stringBuilder.append(exit.getDescription());
     stringBuilder.append("\n");
 
@@ -70,12 +79,14 @@ public class Menu {
     if (index == list.size()) {
       addAnimalCmd.execute();
     } else if (index == list.size() + 1) {
-      getCommandListCmd.execute();
+      addCommandCmd.execute();
     } else if (index == list.size() + 2) {
       getCommandListCmd.execute();
     } else if (index == list.size() + 3) {
       sortByBirthDateCmd.execute();
     } else if (index == list.size() + 4) {
+      getAnimalCounterCmd.execute();
+    } else if (index == list.size() + 5) {
       exit.execute();
     } else {
       list.get(index).execute();

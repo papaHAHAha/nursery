@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Arrays;
 import model.animals.Animals;
 import model.animals.AnimalsRegistry;
@@ -10,7 +11,7 @@ public class Main {
     AnimalsRegistry<Animals> animalList = new AnimalsRegistry<>();
 
     Animals animal1 = new Animals("Smudge", "Cat", LocalDate.of(2020, 02, 20),
-        Arrays.asList("Sit", "Pounce", "Scratch"));
+        new ArrayList<>(Arrays.asList("Sit", "Pounce", "Scratch")));
     animalList.add(animal1);
 
     View view = new Console();

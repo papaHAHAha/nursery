@@ -6,7 +6,7 @@ import java.util.List;
 
 public class AnimalsRegistry<E extends AnimalItem<E>> {
   private List<E> animalList;
-  private long animalId;
+  private static long animalId;
 
   public AnimalsRegistry() {
     this.animalList = new ArrayList<>();
@@ -34,7 +34,7 @@ public class AnimalsRegistry<E extends AnimalItem<E>> {
     return Arrays.asList("cat", "dog", "hamster", "horse", "camel", "donkey").contains(type.toLowerCase());
   }
 
-  public void sortByBirthDate(){
+  public void sortByBirthDate() {
     animalList.sort(new ComparatorByBirthDate<>());
   }
 
@@ -55,5 +55,9 @@ public class AnimalsRegistry<E extends AnimalItem<E>> {
       sb.append("\n");
     }
     return sb.toString();
+  }
+
+  public static long getAnimalCounter() {
+    return animalId;
   }
 }

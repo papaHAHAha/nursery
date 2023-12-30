@@ -60,12 +60,27 @@ public class Service {
     }
   }
 
+  public String addCommand(int id, String command) {
+    List<Animals> animalsList = animalList.getAnimalsList();
+    for (Animals animal : animalsList) {
+      if (animal.getId() == id) {
+        if (animal.hasCommand(command)) {
+          return "Команда \"" + command + "\" уже существует для животного с id " + id;
+        } else {
+          animal.addCommand(command);
+          return "Команда \"" + command + "\" успешно добавлена для животного с id " + id;
+        }
+      }
+    }
+    return "Животное с id " + id + " не найдено";
+  }
+
   public String getCommandList(int id) {
     String res = "Commands: ";
     List<Animals> animalsList = animalList.getAnimalsList();
-    for (Animals animals : animalsList) {
-      if (animals.getId() == id) {
-        res += animals.getCommands();
+    for (Animals animal : animalsList) {
+      if (animal.getId() == id) {
+        res += animal.getCommands();
         break;
       }
     }
@@ -75,4 +90,8 @@ public class Service {
   public void sortByBirthDate() {
     animalList.sortByBirthDate();
   }
+
+  public String getAnimalCounter() {
+    return "Общее количество созданных животных: " + AnimalsRegistry.getAnimalCounter();
+}
 }

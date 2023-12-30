@@ -29,6 +29,7 @@ public class Console implements View {
       menu.execute(choice);
     }
   }
+
   @Override
   public void exit() {
     work = false;
@@ -52,6 +53,10 @@ public class Console implements View {
     presenter.getAnimals();
   }
 
+  public void addCommand(int id, String command) {
+    presenter.addCommand(id, command);
+  }
+
   public void getCommandList(int id) {
     presenter.getCommandList(id);
   }
@@ -59,5 +64,9 @@ public class Console implements View {
   public void sortByBirthDate() {
     presenter.sortByBirthDate();
     getAnimals();
+  }
+
+  public void getAnimalCounter() {
+    presenter.getAnimalCounter();
   }
 }

@@ -1,6 +1,7 @@
 package model.animals;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Animals implements AnimalItem<Animals> {
@@ -73,5 +74,16 @@ public class Animals implements AnimalItem<Animals> {
 
   public String getAnimalType() {
     return this.type.toLowerCase();
+  }
+
+  public void addCommand(String command) {
+    if (command != null && !command.trim().isEmpty()) {
+      commands = new ArrayList<>(commands);
+      commands.add(command);
+    }
+  }
+
+  public boolean hasCommand(String command) {
+    return commands.contains(command);
 }
 }

@@ -32,6 +32,11 @@ public class Presenter {
     view.print(answer);
   }
 
+  public void addCommand(int id, String command) {
+    String answer = service.addCommand(id, command);
+    view.print(answer);
+  }
+
   public void getCommandList(int id) {
     String answer = service.getCommandList(id);
     view.print(answer);
@@ -39,5 +44,10 @@ public class Presenter {
 
   public void sortByBirthDate() {
     service.sortByBirthDate();
+  }
+
+  public void getAnimalCounter() {
+    String answer = service.getAnimalCounter();
+    view.print(answer);
   }
 }
